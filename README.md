@@ -1,1 +1,1 @@
-# React0.1
+Init project on React!

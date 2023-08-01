@@ -1,0 +1,16 @@
+.Card {
+    padding: 80px 0 0 0;
+    background-color: white;
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 450px;
+    height: 570px;
+}
+
+.Card .logo {
+    margin: 0 0 50px 0;
+}

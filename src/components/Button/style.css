@@ -1,0 +1,14 @@
+.green-btn {
+    height: 56px;
+    margin-top: 30px;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    background-color: #44B26F;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.green-btn:active {
+    background: #3ea164;
+}
