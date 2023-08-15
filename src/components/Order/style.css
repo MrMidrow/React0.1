@@ -1,0 +1,52 @@
+table{
+    display: flex;
+    flex-direction: column;
+    width: 870px;
+    background-color: white;
+}
+
+table tr{
+    background: #D9D9D9;
+}
+
+table tr, td{
+    margin: 0;
+    padding: 0;
+    border: none;
+    border-spacing: 0;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+table .controls-order {
+    background-color: #0EC86F;
+}
+table .controls-order th {
+    width: 145px;
+    height: 30px;
+}
+
+table tr:nth-child(2n-1){
+    background-color: #0EC86F;
+}
+
+table .item td{
+    width: 145px;
+    height: 30px;
+    text-align: center;
+}
+
+.btn-edit{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.sort-prod{
+    cursor: pointer;
+}
+
+.edit-prod{
+    width: 19px;
+    height: 19px;
+}

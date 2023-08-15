@@ -1,11 +1,12 @@
 import './style.css';
-import Logo from '../../components/LogoType/Image';
+import LogoType from '../../components/LogoType/LogoType';
 import FormLogin from '../FormLogin/FormLogin';
+import logo from '../../assets/logo.svg';
 
 const CardLogin = () => {
     return (
         <div className="Card">
-            <Logo />
+            <LogoType src={ logo } alt="Logo type rozetka" className={ logo }/>
             <FormLogin />
         </div>
     )

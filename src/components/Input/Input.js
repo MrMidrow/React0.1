@@ -1,5 +1,5 @@
-const Input = ( props ) => {
-    return <input type={ props.type } name={ props.name } placeholder={ props.placeholder } className={ props.className } />
+const Input = ( { type, name, placeholder, className, id} ) => {
+    return <input type={ type } name={ name } placeholder={ placeholder } className={ className } id={id} />
 }
 
 export default Input;

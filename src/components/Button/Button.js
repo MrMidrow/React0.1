@@ -1,7 +1,7 @@
 import './style.css';
 
-const Button = ( props ) => {
-    return <button type={ props.type } className='green-btn'> { props.text } </button>
+const Button = ({ type, text, className, id }) => {
+    return <button type={ type } id={id} className={className}> { text } </button>
 }
 
 export default Button;

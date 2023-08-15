@@ -1,13 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './containers/Login/App';
+import Login from './containers/Login/Login';
+import Product from './containers/Product/Product';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+     <Login />
+    {/* <Product /> */}
   </React.StrictMode>
 );
 
