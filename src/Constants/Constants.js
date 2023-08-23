@@ -6,7 +6,7 @@ export const validatorMap = {
     'validator': /^[A-Z]{1,}[a-z]{4,}$/
   },
   'password': {
-    'validator': /\d{4,}$/
+    'validator': /^[A-Z]+[a-z]+\d{1,}/
   },
   'error': 'Please enter all required fields'
 };

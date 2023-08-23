@@ -4,7 +4,7 @@ import Button from '../Button/Button';
 import { FiEye, FiEyeOff } from 'react-icons/fi';
 import { useState } from 'react';
 import { ErrorSpan } from '../ErrorSpan/ErrorSpan';
-import { API_URL, validatorMap, SERVER_URL } from '../../Constants/Constants';
+import { validatorMap, SERVER_URL } from '../../Constants/Constants';
 
 
 const FormLogin = () => {
@@ -14,10 +14,6 @@ const FormLogin = () => {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
-  const [data, setData] = useState()
-
-  console.log(data)
 
   const eye = <FiEye onClick={handleClickEye} className='FiEye' />;
   const eyeOff = <FiEyeOff onClick={handleClickEye} className='FiEye' />;
@@ -42,9 +38,9 @@ const FormLogin = () => {
         if(!isValidateInput){
           setError(true)
         }else{
-          setError(false);
-          if(inputName === 'email') setEmail(inputValue); 
-          if(inputName === 'password') setPassword(inputValue);
+          setError(false)
+          if(inputName === 'email') setEmail(inputValue) 
+          if(inputName === 'password') setPassword(inputValue)
         }
       }
     };
@@ -56,22 +52,24 @@ const FormLogin = () => {
       postRequest(email, password)
     }
   };
-  async function postRequest(email, password) {
-    try {
-      const response = await fetch(`${ SERVER_URL }/login`, {
+
+  async function postRequest(email, password){
+    try{
+      const response = await fetch(`${SERVER_URL}/login`, {
         method: 'POST',
-        mode: 'no-cors',
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type': 'application/json'
         },
         body: JSON.stringify({
           email: email,
           password: password
         })
-      });
+      })
       const data = await response.json();
-      console.log(data) //тут буде токен
-    } catch (e) {
+      const token = data[0].token;
+      localStorage.setItem('token', token);
+
+    }catch(e){
       console.log(e)
     };
   }
