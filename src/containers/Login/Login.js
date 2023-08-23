@@ -1,8 +1,8 @@
-import './style.css';
+import './Login.css';
 import CardLogin from '../../components/CardLogin/CardLogin';
 
-function App() {
+function Login() {
   return <CardLogin />
 }
 
-export default App;
+export default Login;

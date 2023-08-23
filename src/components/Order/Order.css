@@ -2,14 +2,19 @@ table{
     display: flex;
     flex-direction: column;
     width: 870px;
-    background-color: white;
+    background-color: transparent;
 }
 
-table tr{
+tbody{
+  border-radius: 5px;
+  border-spacing: 0;
+}
+
+table tbody tr{
     background: #D9D9D9;
 }
 
-table tr, td{
+table tbody tr, td{
     margin: 0;
     padding: 0;
     border: none;
@@ -18,19 +23,19 @@ table tr, td{
     border-collapse: collapse;
 }
 
-table .controls-order {
+table tbody .controls-order {
     background-color: #0EC86F;
 }
-table .controls-order th {
+table tbody .controls-order th {
     width: 145px;
     height: 30px;
 }
 
-table tr:nth-child(2n-1){
+table tbody tr:nth-child(2n-1){
     background-color: #0EC86F;
 }
 
-table .item td{
+table tbody .item td{
     width: 145px;
     height: 30px;
     text-align: center;

@@ -1,6 +1,14 @@
-body{
-    background: #44B26F;
+.productOrder{
+  width: 100vw;
+  height: 100vh;
+  background-color: #44B26F;
 }
+
+.productOrder h1{
+  font-size: 30px;
+  font-weight:bold
+}
+
 .logo{
     margin-top: 20px;
     margin-left: 30px;

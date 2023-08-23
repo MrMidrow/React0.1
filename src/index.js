@@ -1,15 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
+import './reset.css'
 import Login from './containers/Login/Login';
-import Product from './containers/Product/Product';
+import ProductOrder from './containers/ProductOrder/ProductOrder'
+import ProductPreview from './containers/ProductPreview/ProductPreview';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-     <Login />
-    {/* <Product /> */}
-  </React.StrictMode>
+  <>
+    {/* <Login /> */}
+    {/* <ProductOrder /> */}
+    <ProductPreview />
+  </>
 );
 
