@@ -65,8 +65,7 @@ const FormLogin = () => {
           password: password
         })
       })
-      const data = await response.json();
-      const token = data[0].token;
+      const {token} = await response.json();
       localStorage.setItem('token', token);
 
     }catch(e){
