@@ -15,6 +15,10 @@ const FormLogin = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  const [data, setData] = useState()
+
+  console.log(data)
+
   const eye = <FiEye onClick={handleClickEye} className='FiEye' />;
   const eyeOff = <FiEyeOff onClick={handleClickEye} className='FiEye' />;
   
@@ -38,9 +42,9 @@ const FormLogin = () => {
         if(!isValidateInput){
           setError(true)
         }else{
-          setError(false)
-          if(inputName === 'email') setEmail(inputValue) 
-          if(inputName === 'password') setPassword(inputValue)
+          setError(false);
+          if(inputName === 'email') setEmail(inputValue); 
+          if(inputName === 'password') setPassword(inputValue);
         }
       }
     };
@@ -49,23 +53,25 @@ const FormLogin = () => {
     if(!email || !password){
       setError(true)
     }else{
-      pustRequest(email, password)
+      postRequest(email, password)
     }
   };
-  async function pustRequest(email, password){
-    try{
-      await fetch(`${SERVER_URL}/users`, {
+  async function postRequest(email, password) {
+    try {
+      const response = await fetch(`${ SERVER_URL }/login`, {
         method: 'POST',
         mode: 'no-cors',
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify({
           email: email,
           password: password
         })
       });
-    }catch(e){
+      const data = await response.json();
+      console.log(data) //тут буде токен
+    } catch (e) {
       console.log(e)
     };
   }
