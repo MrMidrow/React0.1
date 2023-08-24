@@ -10,8 +10,8 @@ import ProductPreview from './containers/ProductPreview/ProductPreview';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <>
-    <Login />
-    {/* <ProductOrder /> */}
+    {/* <Login /> */}
+    <ProductOrder />
     {/* <ProductPreview /> */}
   </>
 );

@@ -1,6 +1,6 @@
 .productOrder{
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   background-color: #44B26F;
 }
 
@@ -49,7 +49,7 @@
     position: absolute;
     cursor: pointer;
     top: 12px;
-    left: 10px;
+    left: 7px;
     z-index: 1;
 }
 
@@ -57,4 +57,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.main > .container-order{
+  margin: 15px 0 25px;
+}
+
+.btn-edit{
+  margin-right: 15px;
 }

@@ -1,10 +1,7 @@
-import Button from "../Button/Button";
-import { BsPencilFill, BsFillArchiveFill } from 'react-icons/bs';
 import { BiSortAlt2 } from 'react-icons/bi';
 import './Order.css'
-import ItemInOrder from "../ItemInOrder/ItemInOrder";
 
-const Order = () => {
+const Order = ({ children }) => {
     return(
         <div className="container-order">
             <table>
@@ -27,7 +24,7 @@ const Order = () => {
                     </th>
                     <th></th>
                 </tr>
-                <ItemInOrder />
+                { children }
               </tbody>
             </table>
         </div>
