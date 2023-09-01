@@ -3,6 +3,7 @@ import Input from '../Input/Input'
 import Button from '../Button/Button';
 import { FiEye, FiEyeOff } from 'react-icons/fi';
 import { useState } from 'react';
+import { useNavigate } from "react-router-dom";
 import { ErrorSpan } from '../ErrorSpan/ErrorSpan';
 import { validatorMap, SERVER_URL } from '../../Constants/Constants';
 
@@ -18,7 +19,7 @@ const FormLogin = () => {
   const eye = <FiEye onClick={handleClickEye} className='FiEye' />;
   const eyeOff = <FiEyeOff onClick={handleClickEye} className='FiEye' />;
   
-
+  const navigate = useNavigate();
 
   function handleClickEye(e) {
     e.preventDefault()
@@ -49,7 +50,7 @@ const FormLogin = () => {
     if(!email || !password){
       setError(true)
     }else{
-      postRequest(email, password)
+      postRequest(email, password);
     }
   };
 
@@ -65,9 +66,9 @@ const FormLogin = () => {
           password: password
         })
       })
-      const {token} = await response.json();
+      const { token } = await response.json();
       localStorage.setItem('token', token);
-
+      navigate("/product");
     }catch(e){
       console.log(e)
     };

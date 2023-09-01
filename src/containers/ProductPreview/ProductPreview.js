@@ -5,6 +5,8 @@ import './productPreview.css'
 import CardItem from '../../components/CardItem/CardItem';
 import {useState, useEffect} from'react';
 
+import { Link } from 'react-router-dom';
+
 const ProductPreview = () => {
   const [products, setProducts] = useState([]);
 
@@ -22,6 +24,8 @@ const ProductPreview = () => {
     }
   }
 
+  let cardItem = products.map((item) => <Link to={item.id} path="/product-preview/:id" key={item.id} ><CardItem key={item.id} logo={item.logo} title={item.name} price={item.price} quantity={item.quantity} /></Link>);
+
   return (
     <div className='container-products'>
       <header className='header-product-preview'>
@@ -29,7 +33,7 @@ const ProductPreview = () => {
       </header>
       <main>
         <div className='product-preview'>
-          {products.map(item => <CardItem logo={item.logo} title={item.name} price={item.price} quantity={item.quantity}/>)}
+          {cardItem}
         </div>
       </main>
     </div>

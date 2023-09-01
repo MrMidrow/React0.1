@@ -3,10 +3,10 @@ export const SERVER_URL = 'http://localhost:8080';
 
 export const validatorMap = {
   'email': {
-    'validator': /^[A-Z]{1,}[a-z]{4,}$/
+    'validator': /^[A-Z]{1,}[a-z]{2,}$/
   },
   'password': {
-    'validator': /^[A-Z]+[a-z]+\d{1,}/
+    'validator': /^[A-Z]{1,}[a-z]{1,}\d{1,}/
   },
   'error': 'Please enter all required fields'
 };

@@ -1,21 +1,27 @@
 import LogoType from '../../components/LogoType/LogoType';
 import Button from '../../components/Button/Button';
-import proguctLogo from '../../assets/productLogo.svg'
-import { GrAdd } from 'react-icons/gr';
-import { VscAccount } from "react-icons/vsc"
-import './productOrder.css'
 import Order from '../../components/Order/Order';
 import ItemInOrder from '../../components/ItemInOrder/ItemInOrder';
+import proguctLogo from '../../assets/productLogo.svg'
+
+import { GrAdd } from 'react-icons/gr';
+import { VscAccount } from "react-icons/vsc"
+
+import './productOrder.css'
+
 import { API_URL } from '../../Constants/Constants';
 import { useState, useEffect } from 'react';
+import { Link } from "react-router-dom";
+
 
 const ProductOrder = () => {
 
   const [product, setProduct] = useState([])
-  console.log(product)
+  const [isLoading, setIsLoading] = useState(false)
+
   useEffect(()=>{
-    getProduct()
-  }, [])
+    if (!isLoading) getProduct()
+  }, [isLoading])
 
   const getProduct = async function () {
     try {
@@ -25,6 +31,7 @@ const ProductOrder = () => {
     } catch (error) {
       console.log(error)
     }
+    setIsLoading(true)
   };
 
   const postProduct = async function () {
@@ -45,6 +52,7 @@ const ProductOrder = () => {
       console.log(error)
     }
   };
+
   let renderItemOrder = product.map((item) => <ItemInOrder key={item.id} id={item.id} category={item.category} name={item.name} quantity={item.quantity} price={item.price} onClick_change={() => console.log('onClick_change')} onClick_delete={() => console.log('onClick_delete')} />)
 
   return (
@@ -54,7 +62,9 @@ const ProductOrder = () => {
         <div className='row-button'>
           <div className='previews'>
             <VscAccount className='acc' />
-            <Button type="button" className={'preview btn-product'} text='Preview' />
+            <Link to="/product-preview">
+              <Button type="button" className={'preview btn-product'} text='Preview' />
+            </Link>
           </div>
           <div className='addProd'>
             <GrAdd className="add" />
