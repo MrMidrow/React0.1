@@ -10,7 +10,7 @@ import Product from "./containers/Product/Product";
 const AppRouter = () => (
     <BrowserRouter>
       <Routes>
-          <Route path="/login" element={<Login />} />
+          <Route path="/" element={<Login />} />
 
           <Route element={<PrivateRoute />}>
             <Route path="/product" element={<ProductOrder />} />

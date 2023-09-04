@@ -6,7 +6,6 @@
 
   justify-content: space-evenly;
   text-align: center;
-  cursor: pointer;
 }
 
 .Card-product .title{
@@ -14,8 +13,8 @@
   text-align: center;
 }
 
-.Card-product .title:hover{
-  text-decoration: underline;
+.Card-product > button{
+  cursor: pointer;
 }
 
 .description {
@@ -44,7 +43,6 @@
   border-radius: 10px;
   border: none;
   background-color: transparent;
-  cursor: pointer;
 }
 
 .add-product:hover{
