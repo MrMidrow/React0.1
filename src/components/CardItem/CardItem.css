@@ -1,0 +1,55 @@
+.Card-product{
+  width: 273px;
+  height: 376px;
+  padding: 5px;
+  margin: 50px 80px;
+
+  justify-content: space-evenly;
+  text-align: center;
+}
+
+.Card-product .title{
+  font-size: 20px;
+  text-align: center;
+}
+
+.Card-product > button{
+  cursor: pointer;
+}
+
+.description {
+  width: 93%;
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.description p{
+  display: block;
+}
+.description .price{
+  font-weight: bold;
+  color:#FC5B00;
+}
+
+.add-product{
+  display: flex;
+  align-items: center;
+  text-align: center;
+  width: 200px;
+  color: #05BC52;
+  font-size: 15px;
+  padding: 3px;
+  border-radius: 10px;
+  border: none;
+  background-color: transparent;
+}
+
+.add-product:hover{
+  background-color: rgb(248, 243, 236);
+}
+
+.add-product .basket-card-add{
+  width: 35px;
+  height: 28px;
+}

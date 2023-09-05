@@ -1,5 +1,10 @@
-const Input = ( props ) => {
-    return <input type={ props.type } name={ props.name } placeholder={ props.placeholder } className={ props.className } />
+const Input = ({ text, type, name, placeholder, className, id, onChange, validator} ) => {
+  return (
+      <label htmlFor={id}>
+        { text }
+        <input type={ type } name={ name } placeholder={ placeholder } className={ className } id={id} onChange={onChange} />
+      </label>
+    )
 }
 
 export default Input;
