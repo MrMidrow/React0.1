@@ -78,7 +78,7 @@ const ProductOrder = () => {
               innerModal={
               <>
                 <section className="section_header-edit">
-                  <p className='edit_product-name'>Edit product</p>
+                  <p className='edit_product-name'>Add product</p>
                     <Button onClick={handleClose} className="close-window_edit" text={<GrClose />} />
                 </section>
                 <section className='section_body-edit'>
