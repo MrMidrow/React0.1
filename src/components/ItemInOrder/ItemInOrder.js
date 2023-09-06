@@ -39,7 +39,7 @@ const ItemInOrder = ({ id, category, name, quantity, price, deleteProduct, putEd
                 <label className='_label'>Description<textarea id="story" name="story" cols="33" placeholder='Description'></textarea></label>
                 <div className='btn-edit-product'>
                   <Button className='concel-btn concel_edit' onClick={handleCloseEdit} text='Concel' />
-                  <Button className='edit-btn concel_edit' onClick={() => console.log(editProduct)} text='Edit' />
+                  <Button className='edit-btn concel_edit' onSubmit={() => console.log(editProduct)} text='Edit' />
                 </div>
               </form>
             </section>

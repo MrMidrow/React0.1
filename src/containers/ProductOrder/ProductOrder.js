@@ -90,17 +90,17 @@ const ProductOrder = () => {
             open={open}
             handleOpen={handleOpen}
             handleClose={handleClose}
-            className='box-edit'
-            classNameBox='modal_box-edit'
+            className='box-add'
+            classNameBox='modal_box-add'
             classNameBtn="btn-product addProducts"
             icon="Add product" 
               innerModal={
               <>
-                <section className="section_header-edit">
-                  <p className='edit_product-name'>Add product</p>
-                    <Button onClick={handleClose} className="close-window_edit" text={<GrClose />} />
+                <section className="section_header-add">
+                  <p className='add_product-name'>Add product</p>
+                    <Button onClick={handleClose} className="close-window_add" text={<GrClose />} />
                 </section>
-                <section className='section_body-edit'>
+                <section className='section_body-add'>
                   <form>
                     <Input className="input" classNameLabel="_label" text='Category' type="text" name='category' />
                     <Input className="input" classNameLabel="_label" text='Name' type='text' name='name' />
@@ -108,8 +108,8 @@ const ProductOrder = () => {
                     <Input className="input" classNameLabel="_label" text='Price' type="text" name='price' />
                     <label className='_label'>Description<textarea id="story" name="story" cols="33" placeholder='Description'></textarea></label>
                     <div className='btn-edit-product'>
-                      <Button className='concel-btn concel_edit' onClick={handleClose} text='Concel' />
-                      <Button className='edit-btn concel_edit' onClick={() => { }} text='Edit' />
+                      <Button className='concel-btn concel_add' onClick={handleClose} text='Concel' />
+                      <Button className='add-btn concel_add' onSubmit={(event) => {event.preventDefault()}} text='Edit' />
                     </div>
                   </form>
                 </section>
