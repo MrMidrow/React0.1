@@ -1,7 +1,8 @@
 import { BiSortAlt2 } from 'react-icons/bi';
+import ItemInOrder from '../ItemInOrder/ItemInOrder';
 import './Order.css'
 
-const Order = ({ children }) => {
+const Order = ({ product, deleteProduct, putEditProduct, editProduct, setEditProduct }) => {
     return(
         <div className="container-order">
             <table>
@@ -24,7 +25,7 @@ const Order = ({ children }) => {
                     </th>
                     <th></th>
                 </tr>
-                { children }
+            {product.map((item) => <ItemInOrder key={item.id} id={item.id} category={item.category} name={item.name} quantity={item.quantity} price={item.price} deleteProduct={deleteProduct} putEditProduct={putEditProduct} editProduct={editProduct} setEditProduct={setEditProduct} />) }
               </tbody>
             </table>
         </div>

@@ -63,6 +63,100 @@
   margin: 15px 0 25px;
 }
 
-.btn-edit{
-  margin-right: 15px;
+
+/* css itemOrder */
+
+.modal_box-edit {
+  background: #D9D9D9;
+}
+
+.modal_box-delete {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
+  width: 429px;
+  height: 146px;
+}
+
+.edit_product-name {
+  color: #D9D9D9;
+  font-size: 24px;
+}
+
+.close-window_edit {
+  display: flex;
+}
+
+.section_header-edit {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+  background-color: white
+}
+
+.section_body-edit {
+  height: 532px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.box-delete {
+  margin-left: 10px;
+}
+
+.concel_delete {
+  padding: 5px 30px;
+  background: #D8D5D5;
+}
+
+.btn-edit-product {
+  display: flex;
+  width: 90%;
+  justify-content: flex-end;
+}
+
+.concel_edit {
+  padding: 5px 30px;
+  background-color: #726969;
+  color: white;
+  font-family: Inter;
+  font-size: 16px;
+}
+
+.edit-btn {
+  background-color: #44B26F;
+}
+
+.delete-btn {
+  margin-left: 10px;
+  background: #FB0000;
+}
+
+._label {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0 0 0;
+}
+
+.input {
+  background-color: white;
+  color: #05BC52;
+  width: 360px;
+  margin-top: 4px;
+  padding: 3px;
+  border: 1px solid transparent;
+}
+
+textarea {
+  resize: none;
+  margin-top: 15px;
+  background-color: white;
+  color: #05BC52;
+  width: 360px;
+  height: 117px;
+  border: 1px solid transparent;
 }
