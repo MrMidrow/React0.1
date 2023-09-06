@@ -31,15 +31,17 @@ const ItemInOrder = ({ id, category, name, quantity, price, deleteProduct, putEd
               <Button onClick={handleCloseEdit} className="close-window_edit" text={<GrClose/>}/>
             </section>
             <section className='section_body-edit'>
-              <Input className="input" classNameLabel="_label" text='Category' type="text" name='category' />
-              <Input className="input" classNameLabel="_label" text='Name' type='text' name='name' />
-              <Input className="input" classNameLabel="_label" text='Quantity' type="text" name='quantity' />
-              <Input className="input" classNameLabel="_label" text='Price' type="text" name='price'/>
-              <label className='_label'>Description<textarea id="story" name="story" cols="33" placeholder='Description'></textarea></label>
-              <div className='btn-edit-product'>
-                <Button className='concel-btn concel_edit' onClick={handleCloseEdit} text='Concel' />
-                <Button className='edit-btn concel_edit' onClick={() => console.log(editProduct)} text='Edit' />
-              </div>
+              <form>
+                <Input className="input" classNameLabel="_label" text='Category' type="text" name='category' />
+                <Input className="input" classNameLabel="_label" text='Name' type='text' name='name' />
+                <Input className="input" classNameLabel="_label" text='Quantity' type="text" name='quantity' />
+                <Input className="input" classNameLabel="_label" text='Price' type="text" name='price' />
+                <label className='_label'>Description<textarea id="story" name="story" cols="33" placeholder='Description'></textarea></label>
+                <div className='btn-edit-product'>
+                  <Button className='concel-btn concel_edit' onClick={handleCloseEdit} text='Concel' />
+                  <Button className='edit-btn concel_edit' onClick={() => console.log(editProduct)} text='Edit' />
+                </div>
+              </form>
             </section>
           </>
         } />

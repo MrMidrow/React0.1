@@ -51,6 +51,25 @@ const ProductOrder = () => {
     setIsLoading(false)
   }
 
+  const postProduct = (category, name, quantity, price, description, e) => {
+    console.log(category, name, quantity, price, description)
+    // try{
+    //   await fetch(`${API_URL}/products`, {
+    //     method: 'POST',
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //     },
+    //     body: JSON.stringify({
+    //       category: category,
+    //       name: name,
+    //       quantity: quantity,
+    //       price: price,
+    //       description: description,
+    //     }),
+    //   });
+    // }catch (error) {console.log(error);}
+  }
+
 
   return (
     <div className='productOrder'>
@@ -82,15 +101,17 @@ const ProductOrder = () => {
                     <Button onClick={handleClose} className="close-window_edit" text={<GrClose />} />
                 </section>
                 <section className='section_body-edit'>
-                  <Input className="input" classNameLabel="_label" text='Category' type="text" name='category' />
-                  <Input className="input" classNameLabel="_label" text='Name' type='text' name='name' />
-                  <Input className="input" classNameLabel="_label" text='Quantity' type="text" name='quantity' />
-                  <Input className="input" classNameLabel="_label" text='Price' type="text" name='price' />
-                  <label className='_label'>Description<textarea id="story" name="story" cols="33" placeholder='Description'></textarea></label>
-                  <div className='btn-edit-product'>
+                  <form>
+                    <Input className="input" classNameLabel="_label" text='Category' type="text" name='category' />
+                    <Input className="input" classNameLabel="_label" text='Name' type='text' name='name' />
+                    <Input className="input" classNameLabel="_label" text='Quantity' type="text" name='quantity' />
+                    <Input className="input" classNameLabel="_label" text='Price' type="text" name='price' />
+                    <label className='_label'>Description<textarea id="story" name="story" cols="33" placeholder='Description'></textarea></label>
+                    <div className='btn-edit-product'>
                       <Button className='concel-btn concel_edit' onClick={handleClose} text='Concel' />
-                    <Button className='edit-btn concel_edit' onClick={() => {}} text='Edit' />
-                  </div>
+                      <Button className='edit-btn concel_edit' onClick={() => { }} text='Edit' />
+                    </div>
+                  </form>
                 </section>
               </>}
             />
