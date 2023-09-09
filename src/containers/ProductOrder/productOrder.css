@@ -159,12 +159,23 @@
   border: 1px solid transparent;
 }
 
+.redInput,
+.errorDescription {
+  border: 1px solid red;
+  outline: 1px solid red;
+}
+
 textarea {
   resize: none;
-  margin-top: 15px;
+  margin-top: 5px;
+  margin-bottom: 10px;
   background-color: white;
   color: #05BC52;
   width: 360px;
   height: 117px;
   border: 1px solid transparent;
+}
+
+.errorSpan{
+  font-size: 14px;
 }
