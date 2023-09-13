@@ -1,12 +1,11 @@
 import LogoType from '../../components/LogoType/LogoType';
 import Button from '../../components/Button/Button';
 import Order from '../../components/Order/Order';
-import Input from '../../components/Input/Input';
 import proguctLogo from '../../assets/productLogo.svg'
 import BasicModal from '../../components/Modal/Modal';
 
 
-import { GrAdd, GrClose } from 'react-icons/gr';
+import { GrAdd } from 'react-icons/gr';
 import { VscAccount } from "react-icons/vsc"
 
 import './productOrder.css'
@@ -14,14 +13,13 @@ import './productOrder.css'
 import { API_URL } from '../../Constants/Constants';
 import { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
-import { ErrorSpan } from '../../components/ErrorSpan/ErrorSpan';
-import TextArea from '../../components/TextArea/TextArea';
+import ModalForm from '../../components/ModalForm/ModalForm';
 
 
 const ProductOrder = () => {
 
   const [product, setProduct] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoaded, setisLoaded] = useState(false);
   const [open, setOpen] = useState(false);
 
   const errorMassage = 'This field is required';
@@ -42,8 +40,8 @@ const ProductOrder = () => {
   const [addProduct, setAddProduct] = useState(initialProduct);
 
   useEffect(()=>{
-    if (!isLoading) getProduct()
-  }, [isLoading])
+    if (!isLoaded) getProduct()
+  }, [isLoaded])
 
   // modal open/close button
   const handleOpen = () => setOpen(true);
@@ -57,50 +55,51 @@ const ProductOrder = () => {
       case 'category':
         if(!inputValue){
           setErrorCategory(true)
-          setAddProduct({ ...addProduct, "category": `${inputValue}` });
+          setAddProduct(prevState => ({ ...prevState, "category": `${inputValue}` }));
+          console.log(addProduct)
           break;
         }else{
-          setAddProduct({ ...addProduct, "category": `${inputValue}` });
+          setAddProduct(prevState => ({ ...prevState, "category": `${inputValue}` }));
           setErrorCategory(false)
           break;
         }
       case 'name':
         if(!inputValue){
           setErrorName(true);
-          setAddProduct({ ...addProduct, name: inputValue });
+          setAddProduct(prevState => ({ ...prevState, name: inputValue }));
           break;
         }else{
-          setAddProduct({...addProduct, name: inputValue });
+          setAddProduct(prevState => ({ ...prevState, name: inputValue }));
           setErrorName(false);
           break;
         }
       case 'quantity':
         if(!inputValue){
           setErrorQuantity(true);
-          setAddProduct({ ...addProduct, "quantity": inputValue });
+          setAddProduct(prevState => ({ ...prevState, "quantity": inputValue }));
           break;
         }else{
-          setAddProduct({ ...addProduct, "quantity": inputValue});
+          setAddProduct(prevState => ({ ...prevState, "quantity": inputValue}));
           setErrorQuantity(false);
           break;
         }
       case 'price':
         if(!inputValue){
           setErrorPrice(true);
-          setAddProduct({ ...addProduct, price: inputValue });
+          setAddProduct(prevState => ({ ...prevState, price: inputValue }));
           break;
         }else{
-          setAddProduct({...addProduct, price: inputValue });
+          setAddProduct(prevState => ({ ...prevState, price: inputValue }));
           setErrorPrice(false);
           break;
         }
       case 'description':
         if(!inputValue){
           setErrorDescription(true)
-          setAddProduct({ ...addProduct, description: inputValue });
+          setAddProduct(prevState => ({ ...prevState, description: inputValue }));
           break;
         }else{
-          setAddProduct({ ...addProduct, description: inputValue});
+          setAddProduct(prevState => ({ ...prevState, description: inputValue}));
           setErrorDescription(false);
           break;
         }
@@ -138,7 +137,7 @@ const ProductOrder = () => {
     } catch (error) {
       console.log(error)
     }
-    setIsLoading(true)
+    setisLoaded(true)
   };
 
   const deleteProduct = async (id) => {
@@ -148,23 +147,38 @@ const ProductOrder = () => {
       console(error);
     }
     setOpen(false)
-    setIsLoading(false)
+    setisLoaded(false)
   }
 
-const postProduct = async () => {
-  try{
-    await fetch(`${API_URL}/products`, {
-      method: 'POST',
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(addProduct)
-    });
-  }catch (error) {
-    console.log(error);
+  const postProduct = async () => {
+    try{
+      await fetch(`${API_URL}/products`, {
+        method: 'POST',
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(addProduct)
+      });
+    }catch (error) {
+      console.log(error);
+    }
+    setisLoaded(false)
   }
-  setIsLoading(false)
-}
+
+  const editProduct = async (id, data) => {
+    try{
+      await fetch(`${API_URL}/products/${id}`,{
+        method: 'PUT',
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      })
+      setisLoaded(false)
+    }catch (error) {
+      console.log(error);
+    }
+  }
 
   return (
     <div className='productOrder'>
@@ -191,28 +205,21 @@ const postProduct = async () => {
             icon="Add product" 
               innerModal={
               <>
-                <section className="section_header-add">
-                  <p className='add_product-name'>Add product</p>
-                    <Button onClick={handleClose} className="close-window_add" text={<GrClose />} />
-                </section>
-                <section className='section_body-add'>
-                  <form onSubmit={(e)=>{e.preventDefault()}}>
-                    <Input className={`input ${errorCategory &&  'redInput'}`} onChange={handleChange} classNameLabel="_label" text='Category' type="text" name='category' />
-                    <ErrorSpan className='' error={errorCategory ? errorMassage : ''}/>
-                    <Input className={`input ${errorName && 'redInput'}`} onChange={handleChange} classNameLabel="_label" text='Name' type='text' name='name' />
-                    <ErrorSpan className='' error={errorName ? errorMassage : ''} />
-                    <Input className={`input ${errorQuantity && 'redInput'}`} onChange={handleChange} classNameLabel="_label" text='Quantity' type="text" name='quantity'/>
-                    <ErrorSpan className='' error={errorQuantity ? errorMassage : ''} />
-                    <Input className={`input ${errorPrice && 'redInput'}`} onChange={handleChange} classNameLabel="_label" text='Price' type="text" name='price' />
-                    <ErrorSpan className='' error={errorPrice ? errorMassage : ''} />
-                    <TextArea onChange={handleChange} name='description' id='story' cols="33" minLength={5} textLable='description' classNameTextArea={`${errorDescription && 'errorDescription'}`} />
-                      <ErrorSpan className='' error={errorDescription ? errorMassage : ''} />
-                    <div className='btn-edit-product'>
-                        <Button className='concel-btn concel_add' onClick={handleClose} text='Concel' />
-                      <Button className='add-btn concel_add' onClick={handleSubmit} text='Edit'/>
-                    </div>
-                  </form>
-                </section>
+                <ModalForm handleClose={handleClose}
+                handleChangeInput={handleChange}
+                classNameCategory={`${errorCategory && 'redInput'}`}
+                classNameName={`${errorName && 'redInput'}`}
+                classNameQuantity={`${errorQuantity && 'redInput'}`}
+                classNamePrice={`${errorPrice && 'redInput'}`}
+                classNameTextArea={`${errorDescription && 'errorDescription'}`}
+                errorCategory={errorCategory}
+                errorName={errorName}
+                errorQuantity={errorQuantity}
+                errorPrice={errorPrice}
+                errorDescription={errorDescription}
+                errorMassage={errorMassage}
+                handleSubmitForm={handleSubmit}
+                />
               </>}
             />
           </div>
@@ -220,7 +227,7 @@ const postProduct = async () => {
       </div>
       <div className='main'>
         <h1>Products</h1>
-        <Order product={product} deleteProduct={deleteProduct}/>
+        <Order product={product} deleteProduct={deleteProduct} editProduct={editProduct} errorMassage={errorMassage} />
       </div>
     </div>
   )
