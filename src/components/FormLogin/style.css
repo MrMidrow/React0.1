@@ -23,6 +23,11 @@
     outline: 1px solid #44B26F;
 }
 
+.Login-Form .box{
+  display: flex;
+  flex-direction: column;
+}
+
 .Login-Form .password-block {
     position: relative;
 }

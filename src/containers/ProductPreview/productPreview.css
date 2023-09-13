@@ -1,0 +1,21 @@
+/* body.ProductPreview{
+  display: block;
+} */
+
+.container-products{
+  background-color: #44B26F;
+  min-height: 100vh;
+}
+.header-product-preview .logoType{
+  cursor: pointer;
+}
+
+.logo-product-preview{
+  margin: 20px 0 0 30px
+}
+
+.product-preview{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}

@@ -1,0 +1,181 @@
+.productOrder{
+  width: 100vw;
+  min-height: 100vh;
+  background-color: #44B26F;
+}
+
+.productOrder h1{
+  font-size: 30px;
+  font-weight:bold
+}
+
+.logo{
+    margin-top: 20px;
+    margin-left: 30px;
+}
+.btn-product{
+    width: 140px;
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    background-color: white;
+    text-align: center;
+    color: #05BC52;
+    cursor: pointer;
+}
+
+.row-button {
+    display: flex;
+    justify-content: space-between;
+    margin: 30px 70px;
+}
+
+.row-button > .previews{
+    position: relative;
+}
+.acc{
+    position: absolute;
+    cursor: pointer;
+    top: 12px;
+    left: 12px;
+    z-index: 1;
+}
+
+.row-button > .addProd{
+    position: relative;
+}
+
+.add{
+    position: absolute;
+    cursor: pointer;
+    top: 12px;
+    left: 7px;
+    z-index: 1;
+}
+
+.main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main > .container-order{
+  margin: 15px 0 25px;
+}
+
+
+/* css itemOrder */
+
+.modal_box-edit,
+.modal_box-add {
+  background: #D9D9D9;
+}
+
+.modal_box-delete {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
+  width: 429px;
+  height: 146px;
+}
+
+.edit_product-name,
+.add_product-name {
+  color: #D9D9D9;
+  font-size: 24px;
+}
+
+.close-window_edit
+.close-window_add{
+  display: flex;
+}
+
+.section_header-edit,
+.section_header-add {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+  background-color: white
+}
+
+.section_body-edit,
+.section_body-add {
+  height: 532px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.box-delete {
+  margin-left: 10px;
+}
+
+.concel_delete {
+  padding: 5px 30px;
+  background: #D8D5D5;
+}
+
+.btn-edit-product,
+.btn-add-product {
+  display: flex;
+  width: 90%;
+  justify-content: flex-end;
+}
+
+.concel_edit,
+.concel_add {
+  padding: 5px 30px;
+  background-color: #726969;
+  color: white;
+  font-family: Inter;
+  font-size: 16px;
+}
+
+.edit-btn,
+.add-btn {
+  background-color: #44B26F;
+}
+
+.delete-btn {
+  margin-left: 10px;
+  background: #FB0000;
+}
+
+._label {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0 0 0;
+}
+
+.input {
+  background-color: white;
+  color: #05BC52;
+  width: 360px;
+  margin-top: 4px;
+  padding: 3px;
+  border: 1px solid transparent;
+}
+
+.redInput,
+.errorDescription {
+  border: 1px solid red;
+  outline: 1px solid red;
+}
+
+textarea {
+  resize: none;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  background-color: white;
+  color: #05BC52;
+  width: 360px;
+  height: 117px;
+  border: 1px solid transparent;
+}
+
+.errorSpan{
+  font-size: 14px;
+}
